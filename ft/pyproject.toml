@@ -1,5 +1,5 @@
 [project]
-name = "hackathon-judge-ft"
+name = "ft"
 version = "0.1.0"
 description = "Fine-tune a small Qwen3 model to judge hackathon projects via SFT distillation"
 requires-python = ">=3.12,<3.13"
