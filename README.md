@@ -1,6 +1,7 @@
 # Can LLMs Judge Hackathons?
 
 [![HF Collection](https://img.shields.io/badge/Hugging%20Face-Collection-222?logo=huggingface&logoColor=FFD21E)](https://huggingface.co/collections/twangodev/devpost-hacks)
+[![Report](https://img.shields.io/badge/Report-PDF-b31b1b)](report.pdf)
 
 Evaluating whether LLMs can judge hackathons in agreement with human judges.
 Scraping lives in a separate repo; this one covers enrichment, pairwise
