@@ -12,7 +12,7 @@ dependencies = [
     "transformers>=5.2.0",
     "peft>=0.12",
     "liger-kernel>=0.5.0",
-    "unsloth>=2026.4",
+    "bitsandbytes>=0.43",
 ]
 
 [project.scripts]

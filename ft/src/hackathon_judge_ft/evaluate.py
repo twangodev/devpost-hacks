@@ -40,14 +40,16 @@ def run(
     model_tag: str = "Qwen/Qwen3.5-4B-sft",
 ) -> dict:
     import torch
-    from unsloth import FastModel
+    from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
     from peft import PeftModel
 
-    model, tokenizer = FastModel.from_pretrained(
-        model_name=model_name,
-        max_seq_length=8192,
-        load_in_4bit=True,
-        dtype=torch.bfloat16 if torch.cuda.is_bf16_supported() else torch.float16,
+    compute_dtype = torch.bfloat16 if torch.cuda.is_bf16_supported() else torch.float16
+    quant_config = BitsAndBytesConfig(load_in_4bit=True, bnb_4bit_compute_dtype=compute_dtype)
+    tokenizer = AutoTokenizer.from_pretrained(model_name)
+    model = AutoModelForCausalLM.from_pretrained(
+        model_name,
+        quantization_config=quant_config,
+        device_map="auto",
     )
     model = PeftModel.from_pretrained(model, adapter_path)
     model.eval()
