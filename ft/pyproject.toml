@@ -20,11 +20,6 @@ dependencies = [
 [project.scripts]
 ft = "hackathon_judge_ft.cli:app"
 
-[tool.uv]
-override-dependencies = [
-    "triton; sys_platform == 'linux'",
-]
-
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
